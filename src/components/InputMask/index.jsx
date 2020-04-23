@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, forwardRef } from 'react';
 import { TextInputMask } from 'react-native-masked-text';
 
 import Input from '../Input';
 
-const InputMask = ({ type, ...rest }) => {
+const InputMask = ({ type, ...rest }, ref) => {
   const [value, setValue] = useState('');
   const [rawValue, setRawValue] = useState('');
 
@@ -20,12 +20,12 @@ const InputMask = ({ type, ...rest }) => {
       onChangeText={handleOnChangeText}
       customTextInput={Input}
       customTextInputProps={{
+        ref,
         rawValue,
-        ...rest,
       }}
       {...rest}
     />
   );
 };
 
-export default InputMask;
+export default forwardRef(InputMask);

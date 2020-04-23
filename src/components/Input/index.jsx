@@ -41,6 +41,7 @@ function Input({ name, onChangeText, rawValue, ...rest }) {
 
   return (
     <TextInput
+      style={{ borderColor: 'gray', borderWidth: 1, margin: 8 }}
       ref={inputRef}
       defaultValue={defaultValue}
       onChangeText={handleOnChange}
